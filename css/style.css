@@ -1,4 +1,3 @@
-
 :root {
     --primary: #00897b;
     --primary-dark: #00695c;
@@ -450,7 +449,6 @@ input:focus, select:focus, textarea:focus {
 }
 
 .why-choose-us {
-    padding: 100px 0;
     background: #f9fbfb;
 }
 
@@ -464,7 +462,7 @@ input:focus, select:focus, textarea:focus {
 .why-image img {
     width: 100%;
     border-radius: 20px;
-    
+    margin-top: -50px;
 }
 
 .why-text h2 {
@@ -552,6 +550,7 @@ input:focus, select:focus, textarea:focus {
 .why-image img {
     width: 100%;
     border-radius: 20px;
+    margin-top:-50px;
 }
 
 .why-text h2 {
