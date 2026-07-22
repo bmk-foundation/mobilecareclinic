@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Primary Meta Tags / SEO Title & Description -->
+    <title>কাস্টমার রিভিউ ও ক্লায়েন্ট স্টোরি | Mobile Care Clinic (MCC)</title>
+
+    <meta name="description" content="Mobile Care Clinic (MCC)-এর সম্মানিত কাস্টমারদের মতামত, অভিজ্ঞতা ও মোবাইল রিপেয়ারিংয়ের সফলতার গল্প। দেখে নিন নাগেশ্বরী ও কুড়িগ্রামের গ্রাহকদের আসল রিভিউ ও কাজের অভিজ্ঞতা।">
+    <meta name="keywords" content="Mobile Care Clinic Reviews, MCC কাস্টমার রিভিউ, মোবাইল সার্ভিসিং ফিডব্যাক, নাগেশ্বরী মোবাইল মেকানিক রিভিউ, স্মার্টফোন রিপেয়ার কাস্টমার রিভিউ, কুড়িগ্রাম মোবাইল সার্ভিসিং মতামত">
+    <meta name="author" content="Mobile Care Clinic Team">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://yourwebsite.com/reviews.html">
+
+    <!-- Open Graph / Facebook SEO -->
+    <meta property="og:locale" content="bn_BD">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mobile Care Clinic (MCC)">
+    <meta property="og:title" content="কাস্টমার রিভিউ ও ক্লায়েন্ট স্টোরিজ - Mobile Care Clinic (MCC)">
+    <meta property="og:description" content="আমাদের সার্ভিস গ্রহীতাদের সতস্ফূর্ত রিভিউ ও অভিজ্ঞতা পড়ুন। আপনার বিশ্বস্ত স্মার্টফোন রিপেয়ার পার্টনার।">
+    <meta property="og:url" content="https://yourwebsite.com/reviews.html">
+    <meta property="og:image" content="https://yourwebsite.com/images/mobile repair servicing centre-banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="কাস্টমার রিভিউ ও গল্পসমূহ | Mobile Care Clinic (MCC)">
+    <meta name="twitter:description" content="মোবাইল কেয়ার ক্লিনিকের সম্মানিত কাস্টমারদের অভিজ্ঞতা ও সার্ভিস রিভিউ গ্যালারি।">
+    <meta name="twitter:image" content="https://yourwebsite.com/images/mobile repair servicing centre-banner.png">
+
+    <!-- Search Engine Verifications -->
+    <meta name="google-site-verification" content="INSERT_YOUR_CODE_HERE" />
+    <meta name="msvalidate.01" content="BING_VERIFICATION_CODE" />
+
+    <!-- Geo Location Tags for Local SEO -->
+    <meta name="geo.region" content="BD-27">
+    <meta name="geo.placename" content="Nageshwari, Kurigram">
+    <meta name="geo.position" content="25.9754;89.7042">
+    <meta name="ICBM" content="25.9754, 89.7042">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reviews.css">
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- JSON-LD Structured Data Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ItemPage",
+          "@id": "https://yourwebsite.com/reviews.html#webpage",
+          "url": "https://yourwebsite.com/reviews.html",
+          "name": "কাস্টমার রিভিউ ও ক্লায়েন্ট স্টোরি | Mobile Care Clinic (MCC)",
+          "description": "মোবাইল কেয়ার ক্লিনিকের বিভিন্ন সার্ভিস নেওয়া গ্রাহকদের সরাসরি রিভিউ এবং সফলতার গল্প।"
+        },
+        {
+          "@type": "MobilePhoneRepair",
+          "@id": "https://yourwebsite.com/#organization",
+          "name": "Mobile Care Clinic (MCC)",
+          "alternateName": "মোবাইল কেয়ার ক্লিনিক",
+          "url": "https://yourwebsite.com/",
+          "telephone": "+8801972151775",
+          "logo": "https://yourwebsite.com/images/mobile repair servicing centre-logo.webp",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "লুছনী আনন্দ বাজার, বামনডাঙ্গা ইউনিয়ন",
+            "addressLocality": "নাগেশ্বরী",
+            "addressRegion": "কুড়িগ্রাম",
+            "postalCode": "5660",
+            "addressCountry": "BD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+
+
+<body>
+<header class="header" id="main-header">
+    <nav class="container nav-bar">
+        
+        <!-- লোগো এবং ডায়নামিক স্ট্যাটাস ব্যাজের কন্টেইনার -->
+        <div class="logo-wrapper">
+            <a href="index.html" class="logo">
+                <img src="images/mobile repair servicing centre-logo.webp" alt="logo">
+            </a>
+            <div id="headerStatusBadge" class="nav-status-badge">
+                <span class="status-dot"></span> 
+                <span id="headerStatusText">অপেক্ষা করুন...</span>
+            </div>
+        </div>
+
+     <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html">হোম</a></li>
+    <li><a href="services.html">সার্ভিস</a></li>
+    <li><a href="tracking.html">ট্র্যাকিং</a></li>
+    <li><a href="reviews.html" class="active">কাস্টমার রিভিউ</a></li>
+    <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+    <li><a href="contact.html" class="btn-contact">যোগাযোগ করুন</a></li>
+</ul>
+
+        <div class="menu-icon" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </nav>
+</header>
+<main>
+<section class="page-header about-hero">
+        <div class="container">
+            <h1>কাস্টমার <span>স্টোরি ও সাফল্য</span></h1>
+            <p>আমাদের কাজ এবং সন্তুষ্ট গ্রাহকদের সাথে কিছু স্মরণীয় মুহূর্ত</p>
+        </div>
+    </section>
+    <!-- ট্র্যাকিং সার্চ সেকশন -->
+<div style="max-width: 500px; margin: 0 auto 30px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+    <h3 style="font-size: 16px; color: #00897b; margin-bottom: 10px; text-align: center;">
+        <i class="fas fa-search-location"></i> আপনার ট্র্যাকিং নম্বর দিয়ে খুঁজুন
+    </h3>
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="trackingSearchInput" placeholder="আপনার ট্র্যাকিং আইডি দিন (যেমন: MCC-1001)" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; outline: none; font-family: adorsho;">
+        <button onclick="searchByTrackingId()" style="background: #00897b; color: white; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-family: adorsho;">
+            খুঁজুন
+        </button>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- নিউজ গ্রিড লিস্ট -->
+    <div class="news-grid" id="storyGrid">
+        <p style="text-align: center; grid-column: 1/-1;">অপেক্ষা করুন...</p>
+    </div>
+</div>
+
+<!-- ফ্লোটিং হোয়াটসঅ্যাপ বাটন (আপনার নাম্বার বসিয়ে নিন) -->
+<a href="https://wa.me/8801972151775?text=আসসালামু%20আলাইকুম!" class="whatsapp-float" target="_blank" title="হোয়াটসঅ্যাপে মেসেজ দিন">
+    <i class="fab fa-whatsapp"></i>
+</a>
+    
+    
+</main>
+
+<footer id="main-footer">
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    
+<div class="footer-logo">
+        <img src="images/mobile repair servicing centre-logo.webp" alt="mobile repair servicing centre-logo">
+        <img class="footer-banner" src="images/mobile repair servicing centre-banner.png" alt="mobile repair servicing centre-banner">
+</div>
+<p class="footer-desc">আপনার ফোনের বিশ্বস্ত হাসপাতাল। আধুনিক যন্ত্রপাতি ও অভিজ্ঞ টেকনিশিয়ান দ্বারা আমরা যেকোনো স্মার্টফোন সমস্যার দ্রুত সমাধান দিয়ে থাকি।</p> </div>
+
+<div class="footer-col">
+    <h4 class="footer-title">আমাদের সেবাসমূহ</h4>
+    <ul class="footer-links">
+        <li><a href="services.html"><i class="fas fa-mobile-alt"></i> ডিসপ্লে রিপ্লেসমেন্ট</a></li>
+        <li><a href="services.html"><i class="fas fa-battery-three-quarters"></i> ব্যাটারি সলিউশন</a></li>
+        <li><a href="services.html"><i class="fas fa-microchip"></i> মাদারবোর্ড রিপেয়ার</a></li>
+        <li><a href="services.html"><i class="fas fa-unlock-alt"></i> সফটওয়্যার আনলকিং</a></li>
+         <li><i class="fa-solid fa-ellipsis"></i> ইত্যাদি</li>
+    </ul>
+</div>
+<div class="footer-col">
+                    <h4 class="footer-title">যোগাযোগ</h4>
+                    <div class="footer-contact">
+                        <p style="font-size :15px;"><i class="fas fa-map-marker-alt"></i>লুছনী আনন্দ বাজার,বামনডাঙ্গা, নাগেশ্বরী, কুড়িগ্রাম।</p>
+                        <p><i class="fas fa-phone-alt"></i> +৮৮০ ১৯৭২-১৫১৭৭৫</p>
+                        <p><i class="fas fa-envelope"></i> support@mcc-clinic.com</p>
+                    </div>
+                </div>
+            </div>
+  <div class="footer-socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+            <div class="footer-bottom">
+                <p>&copy; ২০২৬ <span>Mobile Care Clinic (MCC)</span>. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    const firebaseConfig = { databaseURL: "https://bamandanga-voter-default-rtdb.asia-southeast1.firebasedatabase.app/" };
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    function loadClientStories() {
+        const grid = document.getElementById('storyGrid');
+        
+        db.ref('client_stories').on('value', (snapshot) => {
+            grid.innerHTML = "";
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                const keys = Object.keys(data).reverse();
+
+                keys.forEach(key => {
+                    const item = data[key];
+                    const card = `
+                        <a href="review-details.html?id=${key}" class="news-card">
+                            <div class="card-img-holder">
+                                <img src="${item.imageUrl}" alt="${item.title}">
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <h3 class="card-title">${item.title}</h3>
+                                    <p class="card-desc">${item.details}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <span><i class="fas fa-user"></i> ${item.customerName || 'কাস্টমার'}</span>
+                                    <span>পড়ুন <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    grid.innerHTML += card;
+                });
+            } else {
+                grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>এখনো কোনো পোস্ট করা হয়নি।</p>";
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", loadClientStories);
+    
+    function searchByTrackingId() {
+    const inputId = document.getElementById('trackingSearchInput').value.trim().toUpperCase();
+    
+    // ট্র্যাকিং আইডি না দিলে সুইট অ্যালার্ট ওয়ার্নিং
+    if (!inputId) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'অসম্পূর্ণ তথ্য!',
+            text: 'অনুগ্রহ করে একটি ট্র্যাকিং আইডি লিখুন!',
+            confirmButtonColor: '#00897b',
+            confirmButtonText: 'ঠিক আছে'
+        });
+        return;
+    }
+
+    db.ref('client_stories').once('value', (snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            let foundKey = null;
+
+            // ট্র্যাকিং আইডি ম্যাচ করানো
+            Object.keys(data).forEach(key => {
+                if (data[key].trackingId && data[key].trackingId.toUpperCase() === inputId) {
+                    foundKey = key;
+                }
+            });
+
+            if (foundKey) {
+                // আইডি মিললে ডিটেইলস পেজে নিয়ে যাবে
+                window.location.href = `review-details.html?id=${foundKey}`;
+            } else {
+                // না পাওয়া গেলে সুইট অ্যালার্ট এরর দেখাবে
+                Swal.fire({
+                    icon: 'error',
+                    title: 'পাওয়া যায়নি!',
+                    text: 'দুঃখিত! এই ট্র্যাকিং আইডির কোনো তথ্য বা রিভিউ পাওয়া যায়নি।',
+                    confirmButtonColor: '#00897b',
+                    confirmButtonText: 'আবার চেষ্টা করুন'
+                });
+            }
+        }
+    });
+}
+
+
+</script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navMenu = document.getElementById("nav-menu");
+            const body = document.body;
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.onclick = (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle("active");
+                    const icon = mobileMenu.querySelector('i');
+                    if (navMenu.classList.contains("active")) {
+                        icon.classList.replace('fa-bars', 'fa-times');
+                        body.style.overflow = 'hidden';
+                    } else {
+                        icon.classList.replace('fa-times', 'fa-bars');
+                        body.style.overflow = 'auto';
+                    }
+                };
+
+                // মেনুর বাইরে ক্লিক করলে বন্ধ হবে
+                document.addEventListener('click', (e) => {
+                    if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        if (mobileMenu.querySelector('i')) {
+                            mobileMenu.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                        }
+                        body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+    <script src="js/main.js"></script>
+
+<!-- নতুন আলাদা স্ট্যাটাস স্ক্রিপ্ট -->
+<script src="js/status.js"></script>
+
+</body>
+</html>
