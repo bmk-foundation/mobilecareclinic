@@ -12,6 +12,24 @@ if (!firebase.apps.length) {
 }
 const db = firebase.database();
 const timingDb = firebase.database();
+// --- 🛠️ মেনু ক্লোজ করার হেলপার ফাংশন ---
+function closeAllMenus() {
+    const navMenu = document.getElementById("nav-menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const sidebar = document.getElementById('sidebar');
+    
+    if (navMenu) navMenu.classList.remove("active");
+    if (mobileMenu) {
+        const icon = mobileMenu.querySelector('i');
+        if (icon) icon.classList.replace('fa-times', 'fa-bars');
+    }
+    if (sidebar) sidebar.classList.remove('open', 'active');
+    
+    document.body.style.overflow = 'auto'; // স্ক্রোলিং ব্যাক আনা
+}
+
+// ব্যাক-বাটনে অন্য পেজ থেকে ফিরে আসলে মেনু অটো বন্ধ হবে
+window.addEventListener('pageshow', closeAllMenus);
 // টেলিগ্রাম বটের তথ্যাদি (কন্টাক্ট ফর্মের যে টোকেন ও চ্যাট আইডি আছে)
 const TELEGRAM_BOT_TOKEN = "8986300996:AAH1nx4MDnSGrFzSPy2mRxhqAn3QJBImoI8";
 const TELEGRAM_CHAT_ID = "8846602280";
@@ -36,12 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-// --- ১. হেডার ও মোবাইল মেনু লজিক ---
+    // --- ১. হেডার ও মোবাইল মেনু লজিক ---
     const header = document.getElementById("main-header");
     const navMenu = document.getElementById("nav-menu");
     const mobileMenu = document.getElementById("mobile-menu");
     const body = document.body;
     let lastScrollTop = 0;
+
+    // মেনু বন্ধ করার হেলপার ফাংশন
+    const closeMobileMenu = () => {
+        if (navMenu) navMenu.classList.remove("active");
+        if (mobileMenu) {
+            const icon = mobileMenu.querySelector('i');
+            if (icon) icon.classList.replace('fa-times', 'fa-bars');
+        }
+        body.style.overflow = 'auto';
+    };
 
     // স্ক্রল করলে হেডার হাইড/শো
     if (header) {
@@ -66,25 +94,32 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             navMenu.classList.toggle("active");
             const icon = mobileMenu.querySelector('i');
+            
             if (navMenu.classList.contains("active")) {
-                icon.classList.replace('fa-bars', 'fa-times');
+                if (icon) icon.classList.replace('fa-bars', 'fa-times');
                 body.style.overflow = 'hidden';
             } else {
-                icon.classList.replace('fa-times', 'fa-bars');
+                if (icon) icon.classList.replace('fa-times', 'fa-bars');
                 body.style.overflow = 'auto';
             }
         };
 
+        // মেনুর যেকোনো লিংকে ক্লিক করলে মেনু বন্ধ হবে
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
         // মেনুর বাইরে ক্লিক করলে বন্ধ হবে
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                if(mobileMenu.querySelector('i')) mobileMenu.querySelector('i').classList.replace('fa-times', 'fa-bars');
-                body.style.overflow = 'auto';
+                closeMobileMenu();
             }
         });
     }
 
+    // ব্যাক বাটনে ফিরে আসলে যেন মেনু রিসেট থাকে
+    window.addEventListener('pageshow', closeMobileMenu);
+    
     // --- ২. অ্যাপয়েন্টমেন্ট বুকিং লজিক ---
     const appointmentForm = document.getElementById('appointment-form');
 
