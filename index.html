@@ -115,10 +115,17 @@
     </script>
     <script>
   if (window.location.pathname.endsWith('.html')) {
-    var newUrl = window.location.pathname.replace(/\.html$/, '');
+    // .html বাদ দিয়ে নতুন পথ তৈরি করা
+    var cleanPath = window.location.pathname.replace(/\.html$/, '');
+    
+    // ইউআরএল-এর কোয়েরি প্যারামিটার (?category=display) এবং হ্যাশ (#form) অপরিবর্তিত রাখা
+    var newUrl = cleanPath + window.location.search + window.location.hash;
+    
+    // ইউআরএল ক্লিন করা কিন্তু তথ্যগুলো বজায় রাখা
     window.history.replaceState(null, null, newUrl);
   }
     </script>
+    
 </head>
 
 <body>
