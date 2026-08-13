@@ -1,0 +1,402 @@
+/* --- Core Layout Framework & About Page Styles --- */
+
+:root {
+    --primary: #00897b;
+    --primary-dark: #00695c;
+    --secondary: #263238;
+    --white: #ffffff;
+    --bg-light: #f4f7f6;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@font-face {
+    font-family: 'Adorsho';
+    src: url('../AdorshoLip.ttf') format('truetype');
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Adorsho', sans-serif !important;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+    padding-top: 75px; 
+    -webkit-user-select: none; /* Safari/Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;     
+}
+/* ছবির ওপর লং প্রেস, সিলেক্ট এবং ড্র্যাগ করে ডাউনলোড বন্ধ করা */
+img {
+    -webkit-user-drag: none; /* ক্রোম/সফারি ড্র্যাগ বন্ধ */
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    
+    -webkit-touch-callout: none; /* আইফোন/মোবাইলে লং-প্রেস মেনু বন্ধ */
+    pointer-events: auto;
+}
+/* ফ্লোটিং হোয়াটসঅ্যাপ বাটন স্টাইল */
+.whatsapp-float {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #128c7e;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* মাউস হভার এনিমেশন */
+.whatsapp-float:hover {
+    background-color: red;
+    transform: scale(1.1);
+    color: #FFF;
+}
+
+.my-whatsapp-icon {
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* --- ১. হেডার ও নেভিগেশন --- */
+.header {
+    background: var(--white);
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease-in-out;
+}
+
+.header.hide { transform: translateY(-100%); }
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px; /* মার্জিন বাদ দিয়ে প্যাডিং সামঞ্জস্য করা হয়েছে */
+}
+
+/* লোগো ও ডায়নামিক স্ট্যাটাস ব্যাজকে পাশাপাশি রাখার ফ্লেক্স বক্স */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* লোগো ও ব্যাজের ভেতরের দূরত্ব */
+}
+
+.logo img { 
+    height: 45px; 
+    display: block; 
+    object-fit: contain; 
+}
+
+/* স্ট্যাটাস ব্যাজ রেসপন্সিভ ফিক্স */
+.nav-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap; /* টেক্সট যেন ভেঙে নিচে না যায় */
+}
+
+.nav-status-badge.open {
+    background-color: rgba(46, 125, 50, 0.12);
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+.nav-status-badge.open .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #2e7d32;
+}
+
+.nav-status-badge.closed {
+    background-color: rgba(229, 57, 53, 0.12);
+    color: #e53935;
+    border: 1px solid #e53935;
+}
+
+.nav-status-badge.closed .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #e53935;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #e53935;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* --- গ্লোবাল স্টাইল (ডেস্কটপ ফার্স্ট) --- */
+.about-content { 
+    margin-top: 30px;
+}
+
+.about-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* ডেস্কটপে পাশাপাশি ২ কলাম */
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text h2 { 
+    font-size: 2.2rem; 
+    margin-bottom: 20px; 
+    color: var(--primary);
+}
+
+.about-text p {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.features-list { 
+    list-style: none; 
+    margin-top: 20px; 
+    font-size: 1.2rem;
+}
+
+.features-list li { 
+    margin-bottom: 12px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.features-list i { 
+    color: var(--primary); 
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    display: block;
+}
+
+/* --- মোবাইল ও ট্যাবলেট মোড (max-width: 768px) --- */
+@media (max-width: 768px) {
+    /* নেভিগেশন ও মেনু আইকন */
+    .menu-icon { 
+        display: block; 
+        margin-right: 20px; /* মার্জিন কিছুটা কমিয়ে ব্যালেন্স করা হয়েছে */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0; 
+        width: 100%;
+        background: var(--white);
+        padding: 30px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        gap: 20px;
+        text-align: center;
+        /* এনিমেশন লজিক */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: var(--transition);
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        opacity: 1; 
+        visibility: visible;
+        transform: translateY(0); 
+        pointer-events: auto;
+    }
+
+    /* অ্যাবাউট সেকশন রেসপন্সিভ */
+    .about-content { 
+        padding: 50px 0; 
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* মোবাইলে ১ কলাম (নিচে নিচে) */
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .about-text h2 { 
+        font-size: 1.5rem !important; /* মোবাইলে টাইটেল সাইজ ঠিক করা হয়েছে */
+        text-align: center;
+    }
+
+    .about-text p {
+        font-size: 1rem !important;
+        text-align: center;
+    }
+
+    .features-list {
+        font-size: 1rem !important;
+        display: inline-block; /* লিস্ট আইটেমগুলো সেন্টারে রাখার জন্য */
+        text-align: left;
+    }
+
+    .about-image {
+        order: -1; /* মোবাইলে ছবি লেখার উপরে দেখাবে */
+    }
+    
+    .about-image img {
+        max-width: 100%;
+    }
+    .stats {
+        padding: 40px 0; /* মোবাইলে প্যাডিং কিছুটা কমানো হয়েছে */
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(1fr, 1fr); /* মোবাইলে ৪ কলাম থেকে ২ কলাম করা হয়েছে */
+        gap: 30px 10px; /* উপরে-নিচে ৩০ পিক্সেল এবং ডানে-বামে ১০ পিক্সেল গ্যাপ */
+    }
+
+    .stat-item h3 {
+        font-size: 1.8rem; /* মোবাইলে ফন্ট সাইজ কিছুটা কমানো হয়েছে যেন ভেঙে না যায় */
+        margin-bottom: 5px;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem; /* লেখার সাইজ সামঞ্জস্যপূর্ণ করা হয়েছে */
+        opacity: 0.9;
+    }
+}
+
+
+
+/* --- ৩. পেজ কন্টেন্ট (About Specific) --- */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/mobile repair servicing centre-home.webp');
+    background-size: cover;
+    background-position: center;
+    height: 25vh; /* উচ্চতা কিছুটা বাড়ানো হয়েছে যেন ফর্মটি উপরে উঠতে পারে */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    
+}
+.page-header h1 { font-size: 3rem; margin-bottom: 10px; }
+.page-header h1 span { color: var(--primary); }
+
+
+.stats { background: var(--secondary); color: white; padding: 60px 0; }
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+.stat-item h3 { font-size: 2.5rem; color: var(--primary); }
+
+/* --- ৪. ফুটার সেকশন --- */
+footer {
+    background: #10181b;
+    color: #cbd5e0;
+    padding: 70px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo img { height: 50px; margin-bottom: 20px; }
+.footer-banner { max-width: 280px; margin-bottom: 20px; }
+.footer-title { color: white; margin-bottom: 20px; font-size: 1.2rem; }
+
+.footer-links { list-style: none; }
+.footer-links i { 
+    color: var(--primary);
+    margin-right: 10px;
+}
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #cbd5e0; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: var(--primary); padding-left: 5px; }
+.footer-contact p { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.footer-socials { display: flex; gap: 15px; margin-top: 25px; }
+.footer-socials a {text-decoration: none;
+    width: 40px; height: 40px; background: #1a2428;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: white; transition: 0.3s;
+}
+.footer-socials a:hover { background: var(--primary); transform: translateY(-3px); }
+
+.footer-bottom {
+    border-top: 1px solid #1a2428;
+    margin-top: 40px; padding-top: 20px; text-align: center;
+}
+.footer-bottom p{
+    font-size: .8rem;
+}
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+     .page-header p {
+        font-size: .8rem;
+    }
+}
+/* এনিমেশন */
+    .page-header h1, .page-header p{ animation: fadeIn 1.2s ease; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}

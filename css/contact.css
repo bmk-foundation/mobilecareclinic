@@ -1,0 +1,447 @@
+/* Mobile Care Clinic (MCC) - Core Layout Framework 
+   Includes: Header, Navigation (Hide/Show), Animated Mobile Menu, Page Hero, & Footer
+*/
+
+:root {
+    --primary: #00897b;
+    --primary-dark: #00695c;
+    --secondary: #263238;
+    --white: #ffffff;
+    --bg-light: #f4f7f6;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ফন্ট ফেস কনফিগারেশন */
+@font-face {
+    font-family: 'Adorsho';
+    src: url('../AdorshoLip.ttf') format('truetype');
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Adorsho', sans-serif !important;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+    padding-top: 75px; 
+    -webkit-user-select: none; /* Safari/Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;     
+}
+/* ছবির ওপর লং প্রেস, সিলেক্ট এবং ড্র্যাগ করে ডাউনলোড বন্ধ করা */
+img {
+    -webkit-user-drag: none; /* ক্রোম/সফারি ড্র্যাগ বন্ধ */
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    
+    -webkit-touch-callout: none; /* আইফোন/মোবাইলে লং-প্রেস মেনু বন্ধ */
+    pointer-events: auto;
+}
+/* ফ্লোটিং হোয়াটসঅ্যাপ বাটন স্টাইল */
+.whatsapp-float {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #128c7e;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* মাউস হভার এনিমেশন */
+.whatsapp-float:hover {
+    background-color: red;
+    transform: scale(1.1);
+    color: #FFF;
+}
+
+.my-whatsapp-icon {
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ১. হেডার ও নেভিগেশন (আপডেটেড) --- */
+.header {
+    background: var(--white);
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease-in-out;
+}
+
+.header.hide { transform: translateY(-100%); }
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px; /* মার্জিন বাদ দিয়ে প্যাডিং সামঞ্জস্য করা হয়েছে */
+}
+
+/* লোগো ও ডায়নামিক স্ট্যাটাস ব্যাজকে পাশাপাশি রাখার ফ্লেক্স বক্স */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* লোগো ও ব্যাজের ভেতরের দূরত্ব */
+}
+
+.logo img { 
+    height: 45px; 
+    display: block; 
+    object-fit: contain; 
+}
+
+/* স্ট্যাটাস ব্যাজ রেসপন্সিভ ফিক্স */
+.nav-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap; /* টেক্সট যেন ভেঙে নিচে না যায় */
+}
+
+.nav-status-badge.open {
+    background-color: rgba(46, 125, 50, 0.12);
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+.nav-status-badge.open .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2e7d32;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #2e7d32;
+}
+
+.nav-status-badge.closed {
+    background-color: rgba(229, 57, 53, 0.12);
+    color: #e53935;
+    border: 1px solid #e53935;
+}
+
+.nav-status-badge.closed .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #e53935;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #e53935;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* মোবাইল রেসপন্সিভ মেনু */
+@media (max-width: 768px) {
+    .menu-icon { 
+        display: block; 
+        margin-right: 20px; /* মার্জিন কিছুটা কমিয়ে ব্যালেন্স করা হয়েছে */
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; width: 100%;
+        background: var(--white);
+        padding: 30px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        gap: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: var(--transition);
+        pointer-events: none;
+    }
+    .nav-links.active {
+        opacity: 1; visibility: visible;
+        transform: translateY(0); pointer-events: auto;
+    }
+}
+
+/* --- ২. পেজ হেডার / হিরো সেকশন (অ্যানিমেশনসহ) --- */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/mobile repair servicing centre-home.webp');
+    background-size: cover;
+    background-position: center;
+    height: 25vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-header h1 { font-size: 3rem; margin-bottom: 10px; }
+.page-header h1 span { color: var(--primary); }
+
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 1.5rem; }
+    .page-header p { font-size: .8rem; }
+}
+
+/* ফেড-ইন অ্যানিমেশন */
+.page-header h1, .page-header p { animation: fadeIn 1.2s ease; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Contact Page Specific Styles --- */
+
+/* ১. কন্টাক্ট সেকশন লেআউট */
+.contact-section {
+    padding: 80px 20px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* ডেস্কটপে ২ কলাম */
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* ২. বাম পাশের তথ্য (Contact Info) */
+.contact-info h2 {
+    font-size: 2.2rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+}
+
+.info-items {
+    display: grid;
+    gap: 25px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.info-item i {
+    width: 55px;
+    height: 55px;
+    background: rgba(0, 137, 123, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.info-item p {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* ৩. ডান পাশের ফর্ম বক্স (Contact Form) */
+.contact-form-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    font-family: 'Adorsho', sans-serif;
+    font-size: 16px;
+    transition: var(--transition);
+    outline: none;
+    background: #fdfdfd;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0, 137, 123, 0.1);
+}
+
+.btn-primary {
+    font-family: "adorsho";
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 137, 123, 0.3);
+}
+
+/* ৪. ম্যাপ সেকশন */
+.map-section {
+    line-height: 0; /* ম্যাপের নিচে বাড়তি গ্যাপ দূর করতে */
+    filter: grayscale(0.2); /* হালকা স্টাইলিশ লুক */
+}
+
+/* --- ৫. মোবাইল রেসপন্সিভনেস (max-width: 768px) --- */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 50px 20px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; /* মোবাইলে ১ কলাম */
+        gap: 40px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .contact-info p {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contact-form-box {
+width: auto;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .map-section iframe {
+        margin-bottom: 20px;
+        height: 300px; /* মোবাইলে ম্যাপের উচ্চতা কমানো হয়েছে */
+    }
+}
+
+/* --- ৩. ফুটার সেকশন (রেসপন্সিভ) --- */
+footer {
+    background: #10181b;
+    color: #cbd5e0;
+    padding: 70px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo img { height: 50px; margin-bottom: 20px; }
+.footer-banner { max-width: 280px; margin-bottom: 20px; }
+.footer-title { color: var(--white); margin-bottom: 20px; font-size: 1.2rem; }
+
+.footer-links { list-style: none; }
+.footer-links i { color: var(--primary); margin-right: 10px; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #cbd5e0; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: var(--primary); padding-left: 5px; }
+
+.footer-contact p { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+.footer-socials { display: flex; gap: 15px; margin-top: 25px; }
+.footer-socials a {
+    text-decoration: none;
+    width: 40px; height: 40px; background: #1a2428;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: white; transition: 0.3s;
+}
+.footer-socials a:hover { background: var(--primary); transform: translateY(-3px); }
+
+.footer-bottom {
+    border-top: 1px solid #1a2428;
+    margin-top: 40px; padding-top: 20px; text-align: center;
+}
+.footer-bottom p { font-size: .8rem; }
+
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; }
+}
