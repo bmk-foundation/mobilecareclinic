@@ -567,7 +567,7 @@ input:focus, select:focus, textarea:focus {
 
 @media (max-width: 768px) {
     .features { grid-template-columns: repeat(2, 1fr); }
-    .hero { height: 550px; padding: 120px 0 180px; }
+    .hero { height: 1050px; padding: 120px 0 180px; }
 
 
 .booking-form {
